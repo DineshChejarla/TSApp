@@ -1,56 +1,33 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   return (
-//     <>
-//       <div>
-//         <a href="https://vite.dev" target="_blank">
-//           <img src={viteLogo} className="logo" alt="Vite logo" />
-//         </a>
-//         <a href="https://react.dev" target="_blank">
-//           <img src={reactLogo} className="logo react" alt="React logo" />
-//         </a>
-//       </div>
-//       <h1>Vite + React</h1>
-//       <div className="card">
-//         <button onClick={() => setCount((count) => count + 1)}>
-//           count is {count}
-//         </button>
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to test HMR
-//         </p>
-//       </div>
-//       <p className="read-the-docs">
-//         Click on the Vite and React logos to learn more
-//       </p>
-//     </>
-//   )
-// }
-
-// export default App
-
-
-
-
-
-import React from 'react';
-import StateCounter from './StateCounter';
-import ReducerCounter from './ReducerCounter';
-import './App.css';
+import React from "react";
+import StateCounter from "./StateCounter";
+import ReducerCounter from "./ReducerCounter";
+import Home from "./home/Home";
+import Footer from "./footer/Footer"; // ✅ import Footer
+import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <div className="container">
-      <h1>React + TypeScript Counters</h1>
-      <div className="counters">
-        <StateCounter />
-        <ReducerCounter />
-      </div>
+    <div className="App">
+      {/* Home Component */}
+      <Home />
+
+
+      {/* Counters Section */}
+      <section className="counters-section">
+        <div className="container">
+          <h2 className="counters-title">Interactive Counters</h2>
+          <p className="counters-subtitle">
+            Explore React state management with these counters
+          </p>
+          <div className="counters-grid">
+            <StateCounter />
+            <ReducerCounter />
+          </div>
+        </div>
+      </section>
+
+      {/* ✅ Footer Section */}
+      <Footer />
     </div>
   );
 };

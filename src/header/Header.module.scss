@@ -1,0 +1,108 @@
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 40px;
+  background: linear-gradient(90deg, #141E30, #243B55);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+  .logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff6b6b, #f9ca24);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+
+  .nav {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-left: auto;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #f9ca24;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background: linear-gradient(90deg, #ff6b6b, #f9ca24);
+      transition: width 0.3s ease-in-out;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  .active {
+    font-weight: bold;
+    color: #ff6b6b;
+
+    &::after {
+      width: 100%;
+      background: #ff6b6b;
+    }
+  }
+
+  .dropdown {
+    position: relative;
+
+    .dropdownToggle {
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .dropdownContent {
+      display: none;
+      position: absolute;
+      top: 120%;
+      right: 0;
+      background: #1e1e2f;
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 160px;
+
+      .link {
+        display: block;
+        padding: 8px 12px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.08);
+          border-radius: 6px;
+        }
+      }
+    }
+
+    &:hover .dropdownContent {
+      display: block;
+    }
+  }
+}
